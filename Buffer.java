@@ -1,14 +1,13 @@
 public class Buffer{
   static char[][] _buffer;
 
+
   public Buffer(int width, int height) {
     _buffer = empty(width, height);
   }
   public Buffer(){
     _buffer = empty(1, 1);
   }
-
-  //public Buffer(string filename) {}
 
   public static char[][] empty(int width, int height){
     char[][] newBuffer = new char[width][height];
@@ -19,15 +18,13 @@ public class Buffer{
     }
     return newBuffer;
   }
+
   // put a single character in a position
   public static void draw(char ch, int x, int y) {
     _buffer[y][x] = ch;
   }
 
-  public static char[][] getInsides(){
-    return _buffer;
-  }
-
+  //draw a buffer on another buffer
   public static void draw(Buffer obj, int x, int y){
     char[][] objBuffer = obj.getInsides();
     for (int i = 0; i < objBuffer.length; i++){
@@ -37,6 +34,7 @@ public class Buffer{
     }
   }
 
+  //the old way of I used for draw buffer on each other
   public static void draw_on(Buffer dest, int x, int y) {
     for (int i = 0; i < _buffer.length; i++){
       for (int j = 0; j < _buffer[i].length; j++){
@@ -44,6 +42,12 @@ public class Buffer{
       }
     }
   }
+
+  
+  public static char[][] getInsides(){
+    return _buffer;
+  }
+
 
   // show the buffer on the screen
   public void display() {
